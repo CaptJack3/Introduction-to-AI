@@ -1,0 +1,41 @@
+Fig. \ref{fig:7_0} shows the search tree considered.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{{7_0}}
+    \caption{}
+    \label{fig:7_0}
+\end{figure}
+
+\subsubsection{}
+The expectimax of a chance node is calculated by a weighted sum of the utility and the probability to get it.
+\begin{align*}
+    U(B) &= 0.3\cdot5+0.7\cdot1=2.2 \\
+    U(C) &= 0.4\cdot2+0.2\cdot3+0.4\cdot9=5 \\
+    U(D) &= 0.1\cdot4+0.9\cdot7=6.7 \\
+\end{align*}
+The max operator takes the path with the best value at the chance node:
+\begin{equation*}
+    U(A)=U(argmax(U(i))=U(D)=6.7
+\end{equation*}
+
+\subsubsection{}
+After this computation, it derives that action $D$ is the one we choose, therefore opting to explore the sub-tree through edge $a3$.
+
+\subsubsection{}
+It is not possible to trim in expectimax in the same way we prune sub-trees in alpha-beta algorithm. This is because it is not possible to calculate the expectimax value until all the nodes are evaluated. The pruning can be performed only if a higher and a lower bound of the leaves are available. The regular expectimax is calculated by means of Eq. \ref{eq:expectimax}, where $p,u$ are the probability and utility respectively.
+\begin{equation}\label{eq:expectimax}
+    Expectimax(state,action)=\sum_{i\in succ(state,action)}p_{i}u_{i}
+\end{equation}
+
+If we got an upper and lower bound of the utility $(u_{min},u_{max})$ we can predict the bounds of Expectimax node after revealing one possible successor:
+\begin{equation*}
+    Expectimax(state,action)\in[p_{1}\cdot u_{1}+(1-p_{1})\cdot u_{min},\ p_{1}\cdot u_{1}+(1-p_{1})\cdot u_{max}]
+\end{equation*}
+On the other had, if an upper and lower bound are not available, it is not possible to prune. An example is shown in Fig. \ref{fig:7_c}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{{7_c}}
+    \caption{Example where pruning in expectimax compromises the correctness of the algorithm.}
+    \label{fig:7_c}
+\end{figure}
+Assume the first action was been evaluated and the expectimin returned $5\times 0.3 + 1\times 0.7 = 2.2$. Now we need to evaluate the next action ($a2$). The first successor looks promising with high probability and value we already get 2.4 on our $a2$ chance node and it seems that we do not need to check the next leaves. However, what if the value in $D$ was negative and equals to $-2$? Than the result of the expectimin operator on the second action would be equal to $2$ (smaller then $a1$ action). That's why a naive approach will generally not work. Instead, if we had some bound on the leaves (e.g. positive value utility), we could say,as in the case of the above example, that after checking one leaf at the $a2$ action we could guarantee that action $a1$ is better.

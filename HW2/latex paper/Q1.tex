@@ -1,0 +1,27 @@
+Considering the board game \textit{nine men's morris}, a possible heuristic function for the evaluation of a state is given by:
+\begin{equation*}
+    h(s)=number\ of\ player's\ incomplete\ mills\ -\ number\ of\ rival's\ incomplete\ mills
+\end{equation*}
+The heuristic function has some pros and cons, listed below.
+
+\begin{tabular}{ c m{0.9\linewidth} }
+%    \midrule
+    \textbf{Pros} &
+    \begin{itemize}
+        \item it is very easy to compute;
+        \item it is very informative in the first part of the game when each player has to stop the rival from completing a mill and each player can place a mill wherever on the board.
+    \end{itemize} \\
+    \midrule
+    \textbf{Cons} &
+    \begin{itemize}
+        \item it does not take into account the fact that during the second part of the game the soldiers cannot be placed wherever on the board but must be moved from another position by means of a one-square move;
+        \item it does not take into account the fact that the mobility of the soldiers is important also because a player who cannot move loses the game;
+        \item it does not take into account the number of soldiers each player has on the field, which is another important parameter to take into consideration;
+        \item it does not give a very good indication of the position evaluation in general.
+    \end{itemize} \\
+%    \midrule
+\end{tabular}
+
+%\hl{\textbf{TODO: copy here an examples and explain}}
+
+

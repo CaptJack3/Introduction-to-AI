@@ -1,0 +1,21 @@
+\subsection{}
+We have a set of $D$ features and want to choose a subset containing $b$ of them ($1\leq b\leq D$; the void set is not considered). The number of possible sets by choosing $b$ features from $D$ is:
+\begin{equation*}
+    \left(\begin{array}{c}D\\ b \end{array}\right)=\frac{D!}{(D-b)!\ b!}
+\end{equation*}
+The total number of set is obtained by summing for every value of $ b $:
+\begin{equation*}
+    |P(s)|=\sum_{i=1}^{D}\left(\begin{array}{c}D\\ i\end{array}\right)=2^{D}-1
+\end{equation*}
+Note that we used a well known formula:
+\begin{align*}
+    \sum_{i=0}^{D}\left(\begin{array}{c}D\\ i\end{array}\right)&=2^{D} \\
+    \sum_{i=1}^{D}\left(\begin{array}{c}D\\ i\end{array}\right)
+    &=\sum_{i=0}^{D}\left(\begin{array}{c}D\\ i\end{array}\right)-\left(\begin{array}{c}D\\ 0\end{array}\right)
+\end{align*}
+
+\subsection{}
+We have $ D $ features and want to choose $ b $ of them ($1\leq b\leq D$). The number of possible sets by choosing $ b $ features from $ D $ is
+\begin{equation*}
+    \left(\begin{array}{c}D\\ b\end{array}\right)=\frac{D!}{(D-b)!\ b!}
+\end{equation*}

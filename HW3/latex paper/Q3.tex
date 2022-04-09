@@ -1,0 +1,39 @@
+\subsection{Training set accuracy}
+The number of positive labels ($ y=1 $) is 5 and the number of negative labels ($ y=0 $) is 5. There is no majority (tie), but according to the definition provided for the majority classifier, we say the majority is $y=1$. Checking the accuracy of the majority classifier on the example set: $C(x_{i})=1\ \forall x_{i}=1,2\ldots10$. Because half of the examples were labeled as 1 and half as 0, the classifier will be right half of the times.
+\begin{equation*}
+    accuracy=\frac{\#(right\ classified\ examples)}{\#examples}=0.5
+\end{equation*}
+
+\subsection{2-fold cross-validation}
+We run 2-fold cross-validation over the first fold:
+\begin{align*}
+    x_{training}&=[1,2,3,4,5] \\
+    y_{training}&=[1,1,0,1,1]
+\end{align*}
+The majority classifier is $C_{1}(x)\equiv1$. We now check over the testing fold:
+\begin{align*}
+    x_{testing}&=[6,7,8,9,10] \\
+    y_{testing}&=[0,0,1,0,0] \\
+\end{align*}
+The classifier over the testing points will return: $y_{predict}=[1,1,1,1,1]$. The error is $\epsilon_{1}=4/5$.
+
+We now run 2-fold cross-validation over the second fold:
+\begin{align*}
+    x_{training}=[6,7,8,9,10] \\
+    y_{training}=[0,0,1,0,0]
+\end{align*}
+The majority classifier is $C_{2}(x)\equiv0$. W now check over the testing fold:
+\begin{align*}
+    x_{testing}=[1,2,3,4,5] \\
+    y_{testing}=[1,1,0,1,1]
+\end{align*}
+The classifier over the testing points will return: $y_{predict}=[0,0,0,0,0]$. The error is $\epsilon_{2}=4/5$.
+
+We conclude that the average error is
+\begin{equation*}
+    \epsilon_{avg}=\frac{1}{N}\sum\epsilon_{i}=4/5
+\end{equation*}
+and the accuracy of the algorithm is
+\begin{equation*}
+    accuracy=1-error=1/5
+\end{equation*}

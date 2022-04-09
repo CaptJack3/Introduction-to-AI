@@ -1,0 +1,69 @@
+A student implements an alpha-beta algorithm and in a game against the software she noticed that the computer didn't take a winning move (in the next step) and chose another move instead.
+
+\subsubsection{}
+Such a situation is possible because the heuristic can mislead the computer decisions and therefore avoid the wining move. In particular, the winning move has a lower heuristic value than the move eventually chosen. Probably, the used heuristic doesn't evaluate if the position represents a victory for the computer.
+
+\subsubsection{}
+The change that we can apply is quite simple: if the alpha-beta algorithm gets a state at $depth = 1$ that is winning for the computer, then it returns that move. In Lst. \ref{lst:ex6} we can see the regular alpha-beta algorithm pseudo-code with the slight modification required.% The changes proposed on the algorithm are listed in Table \ref{table:changes}.
+
+\begin{lstlisting}[language=python, label={lst:ex6}, caption={Modified code: lines 2 to 4 have been added.}]
+    alphaBeta(state):
+        for successor in state.getSuccessors(): # added
+            if successor.is_victory_for_player(): # added
+                return successor # added
+        return maxValue(state, -INFINITY, INFINITY, 0)
+
+    maxValue(state, alpha, beta, depth):
+        if cutoffTest(state, depth):
+            return utility (state)
+        value = -INFINITY
+        for successor in state.getSuccessors():
+            value= max(value, minValue(successor, alpha, beta, depth + 1))
+            if value >= beta:
+                return value
+            alpha= max(alpha, value).
+        return value
+
+    minValue(state, alpha, beta, depth):
+        if cutoffTest(state, depth):
+            return utility(state)
+        value = INFINITY
+        for successor in state.getSuccessors():
+        value=min(value, maxValue(successor, alpha, beta, depth + 1)
+            if value <= alpha:
+                return value
+            beta min(beta, value)
+        return value
+\end{lstlisting}
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.6\linewidth]{{6_b}}
+%    \caption{Pseudo-code of the alpha-beta pruning algorithm.}
+%    \label{fig:6b}
+%\end{figure}
+%
+%\begin{table}[h]
+%    \centering
+%    \begin{tabular}{ r m{0.5\linewidth} }
+%        \midrule
+%        Portion of code & Explanation \\
+%        \midrule
+%        $G=G(state,agent)$ & So that it gets the agent, too. \\
+%        \midrule
+%        $G(state,agent)$ & it should return a tuple $(\{T,F\},\{T,F\})$. The first
+%        boolean value is True if the state is endgame and the second is True
+%        if it is victorious for the computer. \\
+%        \midrule
+%        $if G(state)\ is\ (True, True)$ & it should return return $-\infty$ or $\infty$ depending if the agent is respectively minimizing or maximizing the value. \\
+%        \midrule
+%        $if G(state)\ is\ (False, False)$ &  return $\pm\infty$ depending on the agent type, as above. \\
+%        \midrule
+%    \end{tabular}
+%    \caption{Changes proposed to the algorithm.}
+%    \label{table:changes}
+%\end{table}
+%
+%\hl{TODO: check about the $\pm \infty$ value}
+
+With such modifications we can guarantee that the winning move will always be returned.

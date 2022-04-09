@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[width=165mm,top=30mm,bottom=35mm,bindingoffset=0mm]{geometry}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\graphicspath{{Pics/}}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\let\vec\mathbf
+
+\usepackage{soul, color}
+
+\usepackage[unicode=true]{hyperref}
+\usepackage[table]{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!40!black},
+	%    citecolor={blue!50!black},
+	urlcolor={blue!40!black}}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.96}
+
+\definecolor{ashgrey}{rgb}{0.6, 0.75, 0.71}
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{green(colorwheel)(x11green)}{rgb}{0.0, 1.0, 0.0}
+\definecolor{dandelion}{rgb}{0.94, 0.88, 0.19}
+\definecolor{pear}{rgb}{0.82, 0.89, 0.19}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{booktabs}
+
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\begin{document}
+
+    \input{Title}
+
+	\section{Dry part}
+    \subsection{}
+    \input{Q1}
+    \subsection{}
+    \input{Q2}
+    \subsection{}
+    \input{Q3}
+    \subsection{}
+    \input{Q4}
+    \subsection{}
+    \input{Q5}
+    \subsection{}
+    \input{Q6}
+    \subsection{}
+    \input{Q7}
+    \subsection{}
+    \input{Q8}
+    \subsection{}
+    \input{Q9}
+    \subsection{}
+    \input{Q10}
+
+    \newpage
+
+    \section{Wet part}
+    \subsection{Part E}
+    \input{PartE}
+    \subsection{Part F}
+    \input{PartF}
+
+\end{document}

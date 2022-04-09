@@ -1,0 +1,22 @@
+\subsection{}
+Pruning is important to avoid over-fitting the decision tree onto the training data-set. Moreover, pruning also decreases the number of nodes in the decision tree and its depth, thus allowing for a shorter runtime both in the fitting phase and in the classification of new examples.
+
+\setcounter{subsection}{3}
+\subsection{}
+The accuracy achieved in the \verb*!best_m_test! is of $ 97.35\% $.
+
+The pruning slightly improved the performance w.r.t the \verb*!basic_experiment! without pruning. We collected the average runtime of each experiment over some runs (in each experiment we include both the training phase and the testing phase) and compared them, as shown il Table \ref{table:runtime}. However the oscillations in terms of runtime are really large.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c c}
+%         \toprule
+        \textbf{Experiment} & \textbf{Run time} & \textbf{Accuracy} \\
+        \midrule\midrule
+        \verb*!basic_experiment! & 58.55 & $ 96.46\% $ \\
+        \midrule
+        \verb*!best_m_test! & 55.65 & $ 97.35\% $ \\
+%        \bottomrule
+    \end{tabular}
+    \caption{Runtime and accuracy of the two experiments - with and without pruning - compared.}
+    \label{table:runtime}
+\end{table}

@@ -1,0 +1,62 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{report}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=0.5cm,bmargin=0.5cm,lmargin=1cm,rmargin=1cm}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsbsy}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{culmus}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\textbf{Question 8:}
+
+\textbf{(A)}
+
+We have D features and want to choose b of them ($1\leq b\leq D$) 
+
+The number of possible sets by choosing b features from D is $\left(\begin{array}{c}
+D\\
+b
+\end{array}\right)=\frac{D!}{(D-b)!\ b!}$ 
+
+total number of set is summing for every value of b:
+
+\[
+\boldsymbol{|P(s)|=\sum_{i=1}^{D}\left(\begin{array}{c}
+D\\
+i
+\end{array}\right)=2^{D}-1}
+\]
+
+note: we used a well known formula: $\sum_{i=0}^{D}\left(\begin{array}{c}
+D\\
+i
+\end{array}\right)=2^{D}$ so $\sum_{i=1}^{D}\left(\begin{array}{c}
+D\\
+i
+\end{array}\right)=\sum_{i=0}^{D}\left(\begin{array}{c}
+D\\
+i
+\end{array}\right)-\left(\begin{array}{c}
+D\\
+0
+\end{array}\right)$
+
+\textbf{(B)}
+
+We have D features and want to choose b of them ($1\leq b\leq D$) 
+
+The number of possible sets by choosing b features from D is \textbf{$\boldsymbol{\left(\begin{array}{c}
+D\\
+\boldsymbol{b}
+\end{array}\right)=\frac{D!}{(D-b)!\ b!}}$ }
+\end{document}

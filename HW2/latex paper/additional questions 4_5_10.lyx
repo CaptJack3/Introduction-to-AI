@@ -1,0 +1,391 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass report
+\begin_preamble
+\usepackage{culmus}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Qustion 4:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The statement is False !
+\end_layout
+
+\begin_layout Standard
+Minimax is a recursive algorithm which is used to choose an optimal move
+ for a player assuming that the other player is also playing optimally.
+ Minimax generates the whole game tree, down to the leaves.
+ 
+\end_layout
+
+\begin_layout Standard
+Alpha beta pruning has no effect on minimax value computed for the root.
+\end_layout
+
+\begin_layout Standard
+But when we perform alpha-beta or minimax with resource limits i.e.
+ replacing the terminal utilitues with an evaluation function for non-terminal
+ positions the optimality is gone.
+\end_layout
+
+\begin_layout Standard
+If we had a perfect heuristic we had to perform the search only one move
+ ahead, but in reality the evaluation functions are always imperfect.
+ Thus the algorithm is as good as it's evaluation function.
+\end_layout
+
+\begin_layout Standard
+
+\color brown
+EXAMPLE HERE from Q1 !!! 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Qustion 5:
+\end_layout
+
+\begin_layout Standard
+suppose finet states: 
+\begin_inset Formula $s1,s2,s3,s4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define a utility function for the final states that doesn't define a zero-sum
+ game and according to which Minimax is optimal:
+\end_layout
+
+\begin_layout Standard
+Recall: in zero-sum games 
+\begin_inset Formula $U(s,1)=-U(s,2)$
+\end_inset
+
+ or 
+\begin_inset Formula $\sum_{k}^{N}U(s,k)=0$
+\end_inset
+
+ sum of the utilities of all the playes is zero for all states.
+\end_layout
+
+\begin_layout Standard
+for simplicity, let 
+\begin_inset Formula $U(s)=[U(s,1),U(s,2)]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For optimality we will assume that player 2 sicks to maximize his utility.
+\end_layout
+
+\begin_layout Standard
+a.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s1)=[1,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s2)=[5,-3]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s3)=[0,0]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s4)=[1,-1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the next example we can see that we defined a non zero sum game and minimax
+ return the optimal value (assuming player 2 is perfect).
+\end_layout
+
+\begin_layout Standard
+The reason minimax is optimal in that example is because there is a negative
+ correlation between the two players i.e.
+\end_layout
+
+\begin_layout Standard
+what is good for player 1 is bad for player 2.
+ 
+\end_layout
+
+\begin_layout Standard
+Player 1 can see that at the opponent move-in the worst scenario he can
+ get 
+\begin_inset Formula $[1,1]$
+\end_inset
+
+ or 
+\begin_inset Formula $[0,0]$
+\end_inset
+
+ for himself, and it's true because player's 2 best moves are going left
+ in both cases (orange arrows).
+\end_layout
+
+\begin_layout Standard
+So minimizing player's 1 utility in the opponnent move nodes was the same
+ as maximize opponent utilty and thus minimax is optimal in that example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Pics/5_a.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+b.
+\end_layout
+
+\begin_layout Standard
+Define a utility function according to which minimax isn't optimal.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s1)=[1,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s2)=[-1,-1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s3)=[2,0.5]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s4)=[-1.5,0]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the below example we can see a case where minimax won't perform the best
+ moves.
+ It's kind of cooperative game.
+ 
+\end_layout
+
+\begin_layout Standard
+Minimax trying to minimize it's own utility at the opponent nodes.
+ It will get's 
+\begin_inset Formula $[-1,-1]$
+\end_inset
+
+ and 
+\begin_inset Formula $[-1.5,0]$
+\end_inset
+
+ and chose to go left and get minimax value of -1.
+\end_layout
+
+\begin_layout Standard
+But the opponent in his turn will go left in his nodes (orange arrows).
+ Thus in the game Player 1 will get the utility of 1.
+\end_layout
+
+\begin_layout Standard
+The best move for player 1 was to go right, because then the opponent will
+ take the lest node 
+\begin_inset Formula $[2,0.5]$
+\end_inset
+
+ and player 1 utility could be 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Pics/7_c.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Question 10:
+\end_layout
+
+\begin_layout Standard
+c.
+\end_layout
+
+\begin_layout Standard
+An example for search space where SAHC dous not find an opttimal solition
+ with high probability is presented below.
+\end_layout
+
+\begin_layout Standard
+Only if the initial starting point gets somewhere in the red interval (along
+ x-axis) it will climb to the global maximum, otherwise it 
+\end_layout
+
+\begin_layout Standard
+will never reach the global maximum.
+ If the initial starting point will be somewhere along the purpule lines
+ - SAHC will try to
+\end_layout
+
+\begin_layout Standard
+maximize the value and reach a local maximum.
+ So with high probability SAHC will reach one of the 
+\begin_inset Quotes eld
+\end_inset
+
+sine
+\begin_inset Quotes erd
+\end_inset
+
+ peak.
+\end_layout
+
+\begin_layout Standard
+In contrast, Simulated annealing algorithm can 
+\begin_inset Quotes eld
+\end_inset
+
+go down
+\begin_inset Quotes erd
+\end_inset
+
+ to find a global peak, so along the purple lines this algoritm can go down
+ and
+\end_layout
+
+\begin_layout Standard
+reach the peak with much higher probability thab SAHC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Pics/7_c_2.png
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

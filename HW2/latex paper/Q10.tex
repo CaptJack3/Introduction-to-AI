@@ -1,0 +1,72 @@
+\subsubsection{}
+The student is wrong. The algorithm may have always returned local non-global minima each time he ran the SAHC algorithm. The convergence on the global minimum depends only on the starting point, and there is asymptotic guarantee of convergence for the number of starting points tending to infinity. However, it is not possible to state if the global maximum can be reached within a finite number of searches.
+
+In this specific case, the information available about the search space and the results of some run is available:
+\begin{itemize}
+    \item the search space has a size of $10\times 12$;
+    \item two local minima are found after 1000 searches, and their values are 0.9 and 5.8;
+    \item the average of the value of the maxima found is 3.2 (which means 0.9 was found approximately 531 times, while 5.8 was found 469 times);
+    \item the algorithm took on average 5 steps to converge.
+\end{itemize}
+
+However, this data is not informative in terms of probability that 5.8 is actually the global maximum. For instance, Fig. \ref{fig:counter_example} shows an example of a search space corresponding to the information provided (size $10\times 12$), where there are 3 local maxima, two of them corresponding to the ones found by the student running SAHC, and one which is the globabl maximum and is not found by the student. If the algorithm run by the student randomly chooses only points of value 0.1 and 0.5 as starting point (in red), then only two local maxima would be reached (in green) following the path in  according to the experience of the student, bu non of them would correspond to the global maxima which is 15 (in blue). Again, there is no information that ensures us that this condition does not correspond to what happen in the hypothetical situation of he student. Therefore, we conclude that the maxima found by the student could not correspond to the global maximum.
+
+\begin{figure}[H]
+    \begin{center}
+        \begin{tabular}{ | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | }
+            % \cellcolor{limegreen}\cellcolor{dandelion}
+            \hline
+            0 & \cellcolor{red}0.5 & \cellcolor{dandelion}1 & \cellcolor{dandelion}2 & \cellcolor{dandelion}3 & \cellcolor{dandelion}4 & \cellcolor{limegreen}5.8 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{blue}15 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & \cellcolor{limegreen}0.9 & \cellcolor{dandelion}0.7 & \cellcolor{dandelion}0.6 & \cellcolor{dandelion}0.3 & \cellcolor{dandelion}0.2 & \cellcolor{red}0.1 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Example of a possible search space.} \label{fig:counter_example}
+\end{figure}
+
+\subsubsection{}
+Verifying the answer of the student in such conditions wold be easy: instead of running the algorithm from random points, the algorithm should be run 120 times only, starting each time from a different point on the search space: in such a way, the algorithm would converge to the global minimum by the end of the run (and start from the global maximum once).
+
+If we had to verify the student's result with a non-deterministic algorithm instead, another possible algorithm would be Simulated Annealing. The problem of SAHC algorithms is that they try to maximize the state and never makes gradient-descending moves toward states with lower value. In contrast, SA allows to not converge straight away to the local solution, but moving to states with lower value.
+
+\subsubsection{}
+An example of search space where SAHC finds the solution with low probability is shown in Fig. \ref{fig:example_search_space}. Given the total number of cells in the search space $n=20$, the probability of convergence of SAHC to the globabl maximum 15 (red) is given by $2/n = 2/20 = 0.1$, while the probability to converge to the local minimum 5.8 (green) is equal to $1-2/20 = 1-0.1 = 0.9$.
+
+\begin{figure}[H]
+    \begin{center}
+        \begin{tabular}{ | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | p{3.8mm} | }
+            % \cellcolor{limegreen}\cellcolor{dandelion}
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{limegreen}5.8 & \cellcolor{dandelion}1 & \cellcolor{red}15 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Example of a possible search space where SAHC can find the global maxima with low probability.} \label{fig:example_search_space}
+\end{figure}
+
+Another example, with a non-deterministic algorithm instead, of a search space where SAHC does not find the optimal solution with high probability is shown in Fig. \ref{fig:7_c_2}. Only if the initial starting point gets somewhere in the red interval (along x-axis) it will climb to the global maximum, otherwise it will never reach the global maximum. If the initial starting point will be somewhere along the purple lines - SAHC will try to maximize the value and reach a local maximum. So with high probability SAHC will reach one of the \enquote{sinusoidal} peak. In contrast, simulated annealing algorithm can descends the gradient and find the global maximum. Considering again the example of Fig. \ref{fig:7_c_2}, SA can descend along the purple lines and reach the global maximum with much higher probability than SAHC.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{{7_c_2}}
+    \caption{Example where SAHC does not find the optimal solution.}
+    \label{fig:7_c_2}
+\end{figure}
+

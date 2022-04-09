@@ -1,0 +1,15 @@
+\textbf{$\boldsymbol{d_{2}=\mathcal{O}(2\cdot d_{1}})$ }
+
+\subsubsection{}
+The time complexity of minimax is $O(b^{d})$, being function of the number ot leaves in the deepest searching layer. If we get the \lstinline!rival_move! we don't need to expand the whole opponent possible moves, but we just need to run this procedure and we already know among all the possible child nodes which one will be chosen by the rival through \lstinline!rival_move!. Thus the tree size multiply by $b$ every two layers of actions: the branching of the tree, i.e. the increase of the number of branches by a factor $b$, happen every two layer, and not one as before, since the opponent moves do not change the number of branches.
+\begin{align*}
+    O(b^{d_{1}}) &= O(b^{d_{2}/2}) \\
+    d_{2} &= 2\cdot d_{1}
+\end{align*}
+
+\subsubsection{}
+The minimax value is the highest value that the player can be sure to get without knowing the actions of the opponent, i.e it is the lowest value the rival can force the player to receive. Given state $s$, the ratio between the value of the minimax with use of the procedure and the value of the minimax without the use of the procedure when both runs are limited to depth $d$ is give by Eq. \ref{eq:minimax_ratio}.
+\begin{equation}\label{eq:minimax_ratio}
+    v_{i}=max(min(v_{i}))
+\end{equation}
+Indeed, minimax strategy assumes a optimal opponent, i.e. it assumes that the rival will chose its best scebario, which corresponds to our worst sceanrio, but the rival does not necessarily chooses the action with the lowest utility (the one with minimum minimax value). Thus, minimax value without using \lstinline!rival_move! procedure is always less or equal to the value of minimax with using \lstinline!rival_move! procedure.

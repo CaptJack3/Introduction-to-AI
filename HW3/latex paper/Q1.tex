@@ -1,0 +1,8 @@
+The statement is true. Let some node n in the ID3 Algorithm. Without the MinMax normalization, we choose to split by some continues feature $f$. After performing dynamic discretization we get that the highest information-gain value we can get is by using feature $f$ and some threshold value $t_{j}$ .
+
+Let us now consider the MinMax normalization. let $x$ be the value of the feature, the normalized value is $x_{n}$ :
+\begin{equation*}
+    x_{n}=\frac{x-x_{min}}{x_{max}-x_{min}}=\frac{x}{x_{max}-x_{min}}-\frac{x_{min}}{x_{max}-x_{min}}
+\end{equation*}
+
+The normalization value is a linear function of the original value, and this is a monotonically increasing function. Thus, performing the dynamic discretization and the splitting by every feature will lead to the same results achieved without the normalization (the values by themselves are not important, the important thing is the order: if $x_{2}>x_{1}$ then $x_{n_{2}}>x_{n_{1}}$, so if the order of the examples haven't changed then the information gain won't change and we will chose the same feature and relative place to divide the examples by that feature, and thus the same tree will be built and the accuracy will be the same.

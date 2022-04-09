@@ -1,0 +1,18 @@
+We define a possible heuristic for Nine Men's Morris as a weighted sum\footnote{The motivation of using that heuristic is from the paper: Simona-Alexandra PETCU, Stefan HOLBAN, \textit{Nine Men's Morris: Evaluation Functions}} based on the following rule:
+\begin{equation*}
+    h(s) = Evaluation(player)-Evaluation(rival) = \sum_i^N c_i\times R_i
+\end{equation*}
+If $h(s)>0$ white is supposed to be in a better condition, else black is.
+
+The heuristic function we define is based on 8 contributions ($N=8$):
+\begin{itemize}
+    \item R1: returns 1 if a mill was closed by our player in he last move, returns -1 if a mill was closed by the opponent n the last move, returns 0 otherwise;
+    \item R2: returns the difference between the number of my player's mills and the number of the rival's ones;
+    \item R3: returns the difference between the number of my players' blocked pieces and the number of the rival's ones;
+    \item R4: returns the difference between the number of my player's pieces and the number of the rival's ones;
+    \item R5: returns the difference between the number of my player's 2-piece configurations and the number of the rival's ones (a 2-piece configuration is made by two soldiers and a free cell in a row), not accounting for the number of 2-piece configurations that compose the 3-piece configurations;
+    \item R6: returns the difference between the number of my player's 3-piece configurations and the number of the rival's ones (a 3-piece configuration is made by two 2-piece configuration that shares a soldier);
+    \item R7: returns the difference between the number of my player's double mills and the number of the rival's ones (a double mill is made by two mills that share a soldier);
+    \item R8: returns 1 if a mill was closed by our player in he last move, returns -1 if a mill was closed by the opponent n the last move, returns 0 otherwise.
+\end{itemize}
+Different coefficients can be set for the different phases of the game.
